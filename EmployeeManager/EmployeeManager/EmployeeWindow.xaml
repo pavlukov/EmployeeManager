@@ -1,0 +1,173 @@
+﻿<Window x:Class="EmployeeManager.EmployeeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Closed="Window_Closed"
+        Background="#FF1A7A4F"
+        Title="Меню работников" MinHeight="500" MinWidth="800" Height="500" Width="800">
+
+    <Border Padding="5">
+        <ScrollViewer>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Height="Auto" VerticalAlignment="Bottom" Margin="5,5,5,500">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Name="return" Grid.Column="0" Content="Назад" Width="90" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="14" Click="Return_Click" Margin="0,0,0,5"/>
+
+                        <TextBox Name="empSearch" Background="#FFD3FFDD" Grid.Column="1" Height="23" TextWrapping="NoWrap" Margin="5,0,5,5" Text="Поиск" GotFocus="EmpSearch_GotFocus" KeyUp="EmpSearch_KeyUp" LostFocus="EmpSearch_LostFocus"/>
+
+                    </Grid>
+
+                    <ListView Name="employeeList" Background="#FFD3FFDD" ItemsSource="{Binding EmployeeList}" Height="Auto" MinHeight="200" MinWidth="370" VerticalAlignment="Top" Margin="0,0,5,0" MouseDoubleClick="EmployeeList_MouseDoubleClick" KeyDown="EmployeeList_KeyDown" GridViewColumnHeader.Click="GridViewColumnHeaderClickedHandler">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Width="125" Header="Фамилия" DisplayMemberBinding="{Binding Surname}"/>
+                                <GridViewColumn Width="125" Header="Имя" DisplayMemberBinding="{Binding Name}"/>
+                                <GridViewColumn Width="125" Header="Отчество" DisplayMemberBinding="{Binding Middlename}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Grid.Column="0" Name="change" Content="Изменить" Width="90" Height="30" HorizontalAlignment="Left" FontSize="14" Click="Change_Click" Margin="0,2,0,0"/>
+                        <Button Grid.Column="1" Name="load" Content="Загрузить" Width="90" HorizontalAlignment="Center" FontSize="14" Click="Load_Click" Margin="15.2,2,19.6,0"/>
+                        <Button Grid.Column="2" Name="save" Content="Сохранить" Width="90" Height="30" HorizontalAlignment="Right" FontSize="14" Click="Save_Click" Margin="0,2,5,0"/>
+
+                    </Grid>
+
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Height="Auto" VerticalAlignment="Top" Margin="10,0,5.2,0">
+
+                    <Label Content="Фамилия:" FontSize="14"/>
+                    <TextBox Name="empSurname" Height="23" TextWrapping="NoWrap" Text="" Background="#FFD3FFDD"/>
+
+                    <Label Content="Имя:" FontSize="14"/>
+                    <TextBox Name="empName" Height="23" TextWrapping="NoWrap" Text="" Background="#FFD3FFDD"/>
+
+                    <Label Content="Отчество:" FontSize="14"/>
+                    <TextBox Name="empMiddlename" Height="23" TextWrapping="NoWrap" Text="" Background="#FFD3FFDD"/>
+
+                    <Label Content="Должность:" FontSize="14"/>
+                    <TextBox Name="empPosition" Height="23" TextWrapping="NoWrap" Text="" Background="#FFD3FFDD"/>
+
+                    <Label Content="Фото:" FontSize="14"/>
+                    <Grid Height="25">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="80"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox Name="empPhotoPath" Grid.Column="0" Height="23" TextWrapping="NoWrap" Text="" Background="#FFD3FFDD"/>
+                        <Button Grid.Column="1" Content="Обзор" Height="25" Click="BrowsePhoto" HorizontalAlignment="Right" Width="80"/>
+                    </Grid>
+
+                    <Label Content="Дата принятия на работу:" FontSize="14"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <ComboBox Grid.Column="0" Name="employmentDay" Height="23" Margin="0,0,4,0"/>
+                        <ComboBox Grid.Column="1" Name="employmentMonth" Height="23" Margin="2,0,2,0"/>
+                        <ComboBox Grid.Column="2" Name="employmentYear" Height="23" Margin="4,0,0,0"/>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Column="0" Grid.Row="0" Content="Уволен:" FontSize="14"/>
+                        <CheckBox Name="isFired" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center"  Click="IsFired_Click" />
+                        <Label Grid.Column="0" Grid.Row="1" Content="Дата увольнения:" FontSize="12"/>
+                        <ComboBox Grid.Column="0" Grid.Row="2" Name="dismissalDay" IsEnabled="False" Height="23" Margin="0,0,4,0"/>
+                        <ComboBox Grid.Column="1" Grid.Row="2" Name="dismissalMonth" IsEnabled="False" Height="23" Margin="2,0,2,0"/>
+                        <ComboBox Grid.Column="2" Grid.Row="2" Name="dismissalYear" IsEnabled="False" Height="23" Margin="4,0,0,0"/>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Column="0" Grid.Row="0" Content="Предыдущее место работы:" FontSize="14"/>
+                        <CheckBox Name="hasPrevPos" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center"  Click="HasPrevPos_Click" />
+                        <Label Grid.Column="0" Grid.Row="1" Content="Должность:" FontSize="12"/>
+                        <Label Grid.Column="1" Grid.Row="1" Content="Срок работы (лет):" FontSize="12"/>
+                        <TextBox Grid.Column="0" Grid.Row="2" Name="prevPosName" Height="23" TextWrapping="NoWrap" Text="" IsEnabled="False" Background="#FFD3FFDD"/>
+                        <TextBox Grid.Column="1" Grid.Row="2" Name="prevPosTerm" Height="23" TextWrapping="NoWrap" Text="" IsEnabled="False" Background="#FFD3FFDD"/>
+                    </Grid>
+
+                    <Label Content="Отдел:" FontSize="14"/>
+                    <ComboBox Name="empDepartment" DisplayMemberPath="Name" Height="23"/>
+
+                    <Label Content="Начальник:" FontSize="14"/>
+                    <ComboBox Name="empBoss" DisplayMemberPath="Surname" Height="23"/>
+
+
+                    <Label Content="Подчиненные:" FontSize="14"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="80"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ComboBox Grid.Column="0" Name="empSubWorkers" Height="23" DisplayMemberPath="Surname"/>
+                        <Button Grid.Column="1" Name="empSubWorkerAdd"  Height="25" Content="Добавить" Click="EmpSubWorkerAdd_Click"/>
+                    </Grid>
+                    <ListView Name="subWorkerList" ItemsSource="{Binding EmployeeList}" Height="Auto" MinHeight="100" KeyDown="SubWorkerList_KeyDown" Background="#FFD3FFDD">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Width="100" Header="Фамилия" DisplayMemberBinding="{Binding Surname}"/>
+                                <GridViewColumn Width="100" Header="Имя" DisplayMemberBinding="{Binding Name}"/>
+                                <GridViewColumn Width="100" Header="Отчество" DisplayMemberBinding="{Binding Middlename}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                    <Button Name="addEmp" Content="OK" Width="120" Height="40" FontSize="18" Click="OK_Click"/>
+
+                </StackPanel>
+
+
+            </Grid>
+        </ScrollViewer>
+    </Border>
+</Window>

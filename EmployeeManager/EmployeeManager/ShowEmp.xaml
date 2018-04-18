@@ -1,0 +1,43 @@
+﻿<Window x:Class="EmployeeManager.ShowEmp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EmployeeManager"
+        mc:Ignorable="d"
+        Closed="Window_Closed"
+        ResizeMode="NoResize"
+        Background="#FF1A7A4F"
+        Title="Информация о работнике" Height="510" Width="415">
+    <Border Padding="5">
+        <ScrollViewer>
+            <StackPanel>
+
+                <Button Name="return" Content="Назад" Width="90" Height="30" HorizontalAlignment="Left" FontSize="12" Background="#FFD3FFDD" Click="Return_Click" Margin="0,0,0,0"/>
+
+                <Grid Margin="5,10,5,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Name="First" Grid.Column="0" Content="В начало" Width="90" Height="30" HorizontalAlignment="Left" FontSize="12" Background="#FFD3FFDD" Click="First_Click" Margin="0,0,0,0"/>
+                    <Button Name="Prev" Grid.Column="1" Content="Предыдущий" Width="90" Height="30" HorizontalAlignment="Left" FontSize="12" Background="#FFD3FFDD" Click="Prev_Click" Margin="0,0,0,0"/>
+                    <Button Name="Next" Grid.Column="2" Content="Следующий" Width="90" Height="30" HorizontalAlignment="Left" FontSize="12" Background="#FFD3FFDD" Click="Next_Click" Margin="0,0,0,0"/>
+                    <Button Name="Last" Grid.Column="3" Content="В конец" Width="90" Height="30" HorizontalAlignment="Left" FontSize="12" Background="#FFD3FFDD" Click="Last_Click" Margin="0,0,0,0"/>
+
+                </Grid>
+
+                <Frame Name="empPage" NavigationUIVisibility="Hidden">
+                    
+                </Frame>
+                
+                
+                
+            </StackPanel>
+        </ScrollViewer>
+        
+    </Border>
+</Window>

@@ -1,0 +1,114 @@
+﻿<Window x:Class="EmployeeManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Closed="Window_Closed"
+        ResizeMode="NoResize"
+        Background="#FF4673B4"
+        Title="Главное меню" MinHeight="500" MinWidth="800" Height="500" Width="800">
+
+    <Window.Resources>
+        <Style x:Key="buttonStyle">
+            <Setter Property="Button.FontSize" Value="18"/>
+            <Setter Property="Button.Background" Value="#FFE5E0FF"/>
+            <Setter Property="Button.Height" Value="106"/>
+            <Setter Property="Button.Width" Value="322"/>
+            <Setter Property="Button.VerticalAlignment" Value="Center"/>
+            <Setter Property="Button.HorizontalAlignment" Value="Center"/>
+        </Style>
+        <PathGeometry x:Key="geometryPath">
+            <PathFigure IsClosed="True" StartPoint="715, 360">
+                <PolyLineSegment Points="600, 370"/>
+            </PathFigure>
+        </PathGeometry>
+    </Window.Resources>
+
+    <Border Padding="5">
+
+        <Grid>
+            <Grid Margin="-5,-5,-5,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Menu Grid.Column="0">
+                    <MenuItem Name="MenuFile" Header="Файл">
+                        <MenuItem.Icon>
+                            <Image Name="fileImg" Height="15" Width="15"/>
+                        </MenuItem.Icon>
+                        <MenuItem Header="Загрузить" Click="MenuItem_Click"/>
+                        <MenuItem Header="Сохранить" Click="MenuItem_Click_1"/>
+                    </MenuItem>
+                    <MenuItem Header="Плагины" Click="MenuItem_Click_2">
+                        <MenuItem.Icon>
+                            <Image Name="pluginImg" Height="20" Width="20" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </Menu>
+
+                <StackPanel Grid.Row="1">
+                    <TextBlock
+                            Name="Menu"
+                            Height="35"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="#FFE5E0FF"
+                            FontSize="30"
+                            FontWeight="Bold"
+                            Margin="0,30,0,0"
+                            Width="95" Text="Меню">
+                        <TextBlock.Triggers>
+                            <EventTrigger RoutedEvent="TextBlock.Loaded">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames AutoReverse="True" RepeatBehavior="Forever" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)">
+                                                <LinearColorKeyFrame KeyTime="0:0:1" Value="DarkSeaGreen"/>
+                                                <LinearColorKeyFrame KeyTime="0:0:2" Value="LightGoldenrodYellow"/>
+                                                <LinearColorKeyFrame KeyTime="0:0:3" Value="IndianRed"/>
+                                            </ColorAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                        </TextBlock.Triggers>
+                    </TextBlock>
+                    <Rectangle Margin="-3,0,0,0" RenderTransformOrigin="1,0.5" Height="30" Width="88">
+                        <Rectangle.Fill>
+                            <VisualBrush Visual="{Binding ElementName=Menu}" />
+                        </Rectangle.Fill>
+                        <Rectangle.OpacityMask>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Offset="0.3" Color="Transparent" />
+                                <GradientStop Offset="1" Color="#80000000" />
+                            </LinearGradientBrush>
+                        </Rectangle.OpacityMask>
+                        <Rectangle.RenderTransform>
+                            <ScaleTransform ScaleY="-1" />
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                </StackPanel>
+
+                <Button
+                        Name="empButton"
+                        Grid.Row="2"
+                        Margin="228,9.6,234,34.8"
+                        Content="Работники"
+                        Style="{StaticResource buttonStyle}" Click="Employee_Click">
+                </Button>
+                <Button
+                        Grid.Row="3"
+                        Margin="228,10.2,234,34.2"
+                        Click="Departments_Click"
+                        Content="Отделы" 
+                        Style="{StaticResource buttonStyle}"/>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

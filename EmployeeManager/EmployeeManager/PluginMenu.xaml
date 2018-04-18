@@ -1,0 +1,27 @@
+﻿<Window x:Class="EmployeeManager.PluginMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EmployeeManager"
+        mc:Ignorable="d"
+        Background="#FFD3FFDD"
+        ResizeMode="NoResize"
+        Title="PluginMenu" Height="200" Width="200">
+
+    <Window.Resources>
+        <DataTemplate x:Key="listTemplate">
+            <StackPanel Margin="5">
+                <TextBlock FontSize="14" Foreground="Chocolate" FontFamily="Times New Roman" Text="{Binding Path=Name}"/>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+
+    <StackPanel>
+
+        <ListBox Name="PluginList" Background="#FFD3FFDD" ItemTemplate="{StaticResource listTemplate}"/>
+
+        <Button Content="Запуск" Width="60" Height="25" FontSize="12" VerticalAlignment="Bottom" Click="Button_Click"/>
+
+    </StackPanel>
+</Window>
