@@ -1,0 +1,12 @@
+D:\Prog\3 sem\ИСП\EmployeeManager.SDK\EmployeeManager.SDK\bin\Debug\EmployeeManager.SDK.dll
+D:\Prog\3 sem\ИСП\EmployeeManager.SDK\EmployeeManager.SDK\bin\Debug\EmployeeManager.SDK.pdb
+D:\Prog\3 sem\ИСП\EmployeeManager.SDK\EmployeeManager.SDK\obj\Debug\EmployeeManager.SDK.csprojResolveAssemblyReference.cache
+D:\Prog\3 sem\ИСП\EmployeeManager.SDK\EmployeeManager.SDK\obj\Debug\EmployeeManager.SDK.csproj.CoreCompileInputs.cache
+D:\Prog\3 sem\ИСП\EmployeeManager.SDK\EmployeeManager.SDK\obj\Debug\EmployeeManager.SDK.dll
+D:\Prog\3 sem\ИСП\EmployeeManager.SDK\EmployeeManager.SDK\obj\Debug\EmployeeManager.SDK.pdb
+D:\Сережа\исп\EmployeeManager.SDK\EmployeeManager.SDK\bin\Debug\EmployeeManager.SDK.dll
+D:\Сережа\исп\EmployeeManager.SDK\EmployeeManager.SDK\bin\Debug\EmployeeManager.SDK.pdb
+D:\Сережа\исп\EmployeeManager.SDK\EmployeeManager.SDK\obj\Debug\EmployeeManager.SDK.csprojResolveAssemblyReference.cache
+D:\Сережа\исп\EmployeeManager.SDK\EmployeeManager.SDK\obj\Debug\EmployeeManager.SDK.csproj.CoreCompileInputs.cache
+D:\Сережа\исп\EmployeeManager.SDK\EmployeeManager.SDK\obj\Debug\EmployeeManager.SDK.dll
+D:\Сережа\исп\EmployeeManager.SDK\EmployeeManager.SDK\obj\Debug\EmployeeManager.SDK.pdb
